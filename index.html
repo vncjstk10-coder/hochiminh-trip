@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>호치민·호짬 여행수첩</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-</head>
-<body>
-<style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"><style>
 :root{
   --bg:#F2F5FA;--card:#FFFFFF;--border:rgba(14,66,64,0.09);
   --shadow:0 8px 26px rgba(14,66,64,0.10);
@@ -109,7 +105,7 @@ h1,h2,h3,h4{margin:0}
 .lrow.open .lrow-arrow{transform:rotate(90deg)}
 .lrow-detail{display:none;padding:2px 16px 16px 68px;font-size:12.6px;color:var(--text-soft);line-height:1.7;background:var(--bg)}
 .lrow-detail.open{display:block;animation:fadein .18s ease both}
-.lrow-detail .qr-chip{margin-top:10px}
+.lrow-detail .map-link{margin-top:14px}
 .grp-lbl{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:22px 2px 8px}
 .grp-lbl:first-of-type{margin-top:0}
 
@@ -126,10 +122,13 @@ h1,h2,h3,h4{margin:0}
 .note-box.red{background:var(--red-soft);border-left:3px solid var(--red-deep);color:var(--text-soft)}
 .note-box.teal{background:var(--teal-soft);border-left:3px solid var(--teal-deep);color:var(--text-soft)}
 
-/* ---------------- qr chip ---------------- */
-.qr-chip{display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:#fff;border-radius:12px;padding:8px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-.qr-chip .qbox{line-height:0}
-.qr-chip .qcap{font-size:10px;font-weight:700;color:#2A2A2A}
+/* ---------------- map link banner ---------------- */
+.map-link{display:flex;align-items:center;justify-content:center;gap:7px;width:max-content;max-width:100%;
+  margin:16px auto 0;padding:11px 20px;border-radius:12px;background:var(--teal-soft);color:var(--teal-deep);
+  font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;transition:transform .12s;
+  -webkit-tap-highlight-color:transparent}
+.map-link:active{transform:scale(.96)}
+.map-link .ml-arrow{font-size:15px;font-weight:900}
 
 /* ---------------- itinerary timeline ---------------- */
 .day-pills{display:flex;gap:8px;overflow-x:auto;margin-bottom:18px;padding-bottom:2px;scrollbar-width:none}
@@ -166,8 +165,8 @@ h1,h2,h3,h4{margin:0}
 
 .pax-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}
 .pax{display:flex;flex-direction:column;gap:2px;background:var(--amber-soft);border-radius:12px;padding:8px 13px}
-.pax .rel{font-size:10px;color:var(--amber-deep);font-weight:800}
-.pax .nm{font-size:12.5px;font-weight:700;color:var(--text)}
+.pax .rel{font-size:10px;color:var(--amber-deep);font-weight:800;white-space:nowrap}
+.pax .nm{font-size:12.5px;font-weight:700;color:var(--text);white-space:nowrap}
 
 /* ---------------- stay card ---------------- */
 .stay-card{border-radius:20px;overflow:hidden;background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);margin-bottom:16px}
@@ -233,7 +232,7 @@ h1,h2,h3,h4{margin:0}
   <!-- ══════════ HOME ══════════ -->
   <div class="tab-panel active" id="panel-home">
   <div class="con">
-    <div class="ph"><h1>호치민 · 호짬 가족여행</h1><p>10.12(월) ~ 10.17(토) · 5박6일 · 붕따우 호짬(2박) → 호치민 시내(2박)</p></div>
+    <div class="ph"><h1>🇻🇳 호치민 · 호짬 가족여행</h1><p>🗓️ 10.12(월) ~ 10.17(토) · 5박6일 · 🏖️ 붕따우 호짬(2박) → 🏙️ 호치민 시내(2박)</p></div>
 
     <div class="banner card-teal">
       <div style="flex:1;min-width:0">
@@ -261,7 +260,7 @@ h1,h2,h3,h4{margin:0}
       </div>
     </div>
 
-    <div class="stitle">빠른 이동</div>
+    <div class="stitle">⚡ 빠른 이동</div>
     <div class="quick-grid">
       <div class="quick-cell" onclick="go('all','row-checklist')"><span class="qc-ico">✅</span><span>체크리스트</span></div>
       <div class="quick-cell" onclick="go('all','row-phrase')"><span class="qc-ico">🗣️</span><span>회화&amp;앱</span></div>
@@ -273,7 +272,7 @@ h1,h2,h3,h4{margin:0}
       <div class="quick-cell" onclick="go('all','row-memo')"><span class="qc-ico">📝</span><span>메모</span></div>
     </div>
 
-    <div class="stitle">다음 일정 미리보기</div>
+    <div class="stitle">👀 다음 일정 미리보기</div>
     <div class="lgroup">
       <div class="lrow no-detail" onclick="go('itinerary')">
         <div class="lrow-icon" style="background:var(--amber-soft);color:var(--amber-deep)">✈️</div>
@@ -297,7 +296,7 @@ h1,h2,h3,h4{margin:0}
   <!-- ══════════ ITINERARY ══════════ -->
   <div class="tab-panel" id="panel-itinerary">
   <div class="con">
-    <div class="ph"><h1>일정표</h1><p>Day 1~6 상세 일정 · 시간순 타임라인 · 호짬 = 노랑, 시내 = 초록, 귀국 = 빨강</p></div>
+    <div class="ph"><h1>🗓️ 일정표</h1><p>Day 1~6 상세 일정 · 시간순 타임라인 · 🏖️ 호짬 = 노랑, 🏙️ 시내 = 초록, ✈️ 귀국 = 빨강</p></div>
 
     <div class="day-pills">
       <div class="day-pill" onclick="jump('day-1')">DAY 1</div>
@@ -309,59 +308,59 @@ h1,h2,h3,h4{margin:0}
     </div>
 
     <div class="day-block" id="day-1" style="--accent:var(--amber);--accent-deep:var(--amber-deep)">
-      <div class="day-head"><span class="day-num">DAY 01</span><h3>인천 → 호치민 → 호짬</h3><span class="day-date">2026.10.12 (월)</span></div>
+      <div class="day-head"><span class="day-num">DAY 01</span><h3>✈️ 인천 → 호치민 → 호짬</h3><span class="day-date">2026.10.12 (월)</span></div>
       <div class="day-tl">
-        <div class="day-item"><div class="day-time">07:30</div><div class="day-what">인천공항 T2 출발 — OZ731</div></div>
-        <div class="day-item"><div class="day-time">11:00</div><div class="day-what">호치민 탄손녓 국제공항 도착</div><div class="day-note">입국심사(무비자 45일)·수하물 수취 후 차량으로 붕따우 호짬 이동</div></div>
-        <div class="day-item"><div class="day-time">~14:00</div><div class="day-what">호짬 도착, Angsana Hồ Tràm 체크인</div><div class="day-note">이동 약 2~3시간 · 3베드룸 풀빌라 · 조식 포함 예약</div></div>
-        <div class="day-item"><div class="day-time">오후~저녁</div><div class="day-what">해변 산책 &amp; 자유시간, 리조트 내 저녁식사</div></div>
+        <div class="day-item"><div class="day-time">07:30</div><div class="day-what">🛫 인천공항 T2 출발 — OZ731</div></div>
+        <div class="day-item"><div class="day-time">11:00</div><div class="day-what">🛬 호치민 탄손녓 국제공항 도착</div><div class="day-note">입국심사(무비자 45일)·수하물 수취 후 차량으로 붕따우 호짬 이동</div></div>
+        <div class="day-item"><div class="day-time">~14:00</div><div class="day-what">🏨 호짬 도착, Angsana Hồ Tràm 체크인</div><div class="day-note">이동 약 2~3시간 · 3베드룸 풀빌라 · 조식 포함 예약</div></div>
+        <div class="day-item"><div class="day-time">오후~저녁</div><div class="day-what">🌅 해변 산책 &amp; 자유시간, 리조트 내 저녁식사</div></div>
       </div>
     </div>
 
     <div class="day-block" id="day-2" style="--accent:var(--amber);--accent-deep:var(--amber-deep)">
-      <div class="day-head"><span class="day-num">DAY 02</span><h3>호짬 풀데이</h3><span class="day-date">2026.10.13 (화)</span></div>
+      <div class="day-head"><span class="day-num">DAY 02</span><h3>🏖️ 호짬 풀데이</h3><span class="day-date">2026.10.13 (화)</span></div>
       <div class="day-tl">
-        <div class="day-item"><div class="day-time">오전</div><div class="day-what">조식 후 해변·수영장에서 휴식</div></div>
-        <div class="day-item"><div class="day-time">오후</div><div class="day-what">풀빌라 자유시간 / 스파·마사지 (선택)</div></div>
-        <div class="day-item"><div class="day-time">저녁</div><div class="day-what">리조트 내 or 근처 저녁식사, 노을 감상</div></div>
+        <div class="day-item"><div class="day-time">오전</div><div class="day-what">🍳 조식 후 해변·수영장에서 휴식</div></div>
+        <div class="day-item"><div class="day-time">오후</div><div class="day-what">💆 풀빌라 자유시간 / 스파·마사지 (선택)</div></div>
+        <div class="day-item"><div class="day-time">저녁</div><div class="day-what">🌇 리조트 내 or 근처 저녁식사, 노을 감상</div></div>
       </div>
     </div>
 
     <div class="day-block" id="day-3" style="--accent:var(--jade);--accent-deep:var(--jade-deep)">
-      <div class="day-head"><span class="day-num">DAY 03</span><h3>호치민 시내 이동 · 중앙우체국 · 벤탄시장</h3><span class="day-date">2026.10.14 (수)</span></div>
+      <div class="day-head"><span class="day-num">DAY 03</span><h3>🏙️ 호치민 시내 이동 · 중앙우체국 · 벤탄시장</h3><span class="day-date">2026.10.14 (수)</span></div>
       <div class="day-tl">
-        <div class="day-item"><div class="day-time">오전</div><div class="day-what">조식 후 체크아웃, 호치민 시내로 이동</div><div class="day-note">차량 약 2~3시간</div></div>
-        <div class="day-item"><div class="day-time">~15:00</div><div class="day-what">Somerset Hồ Chí Minh 체크인 (District 1)</div></div>
-        <div class="day-item"><div class="day-time">오후</div><div class="day-what">사이공 중앙우체국 &amp; 서점거리 산책</div></div>
-        <div class="day-item"><div class="day-time">19:00~</div><div class="day-what">벤탄 스트리트 푸드마켓에서 저녁</div><div class="day-note">벤탄시장 북문 도보 1분, 22:00까지</div></div>
+        <div class="day-item"><div class="day-time">오전</div><div class="day-what">🚗 조식 후 체크아웃, 호치민 시내로 이동</div><div class="day-note">차량 약 2~3시간</div></div>
+        <div class="day-item"><div class="day-time">~15:00</div><div class="day-what">🏨 Somerset Hồ Chí Minh 체크인 (District 1)</div></div>
+        <div class="day-item"><div class="day-time">오후</div><div class="day-what">🏛️ 사이공 중앙우체국 &amp; 서점거리 산책</div></div>
+        <div class="day-item"><div class="day-time">19:00~</div><div class="day-what">🍢 벤탄 스트리트 푸드마켓에서 저녁</div><div class="day-note">벤탄시장 북문 도보 1분, 22:00까지</div></div>
       </div>
     </div>
 
     <div class="day-block" id="day-4" style="--accent:var(--jade);--accent-deep:var(--jade-deep)">
-      <div class="day-head"><span class="day-num">DAY 04</span><h3>전쟁증적박물관 · 통일궁</h3><span class="day-date">2026.10.15 (목)</span></div>
+      <div class="day-head"><span class="day-num">DAY 04</span><h3>🏛️ 전쟁증적박물관 · 통일궁</h3><span class="day-date">2026.10.15 (목)</span></div>
       <div class="day-tl">
-        <div class="day-item"><div class="day-time">09:00</div><div class="day-what">전쟁증적박물관 관람</div><div class="day-note">입장료 4만동 · 매표 마감 17:00</div></div>
-        <div class="day-item"><div class="day-time">11:00</div><div class="day-what">통일궁(독립궁) 관람</div><div class="day-note">통합권 8만동 · 매표 08:00~15:30</div></div>
-        <div class="day-item"><div class="day-time">점심</div><div class="day-what">벤탄시장 인근 로컬 식당</div></div>
-        <div class="day-item"><div class="day-time">오후~저녁</div><div class="day-what">자유시간 (쇼핑·마사지) 후 저녁식사</div></div>
+        <div class="day-item"><div class="day-time">09:00</div><div class="day-what">🎖️ 전쟁증적박물관 관람</div><div class="day-note">입장료 4만동 · 매표 마감 17:00</div></div>
+        <div class="day-item"><div class="day-time">11:00</div><div class="day-what">🏯 통일궁(독립궁) 관람</div><div class="day-note">통합권 8만동 · 매표 08:00~15:30</div></div>
+        <div class="day-item"><div class="day-time">점심</div><div class="day-what">🍜 벤탄시장 인근 로컬 식당</div></div>
+        <div class="day-item"><div class="day-time">오후~저녁</div><div class="day-what">🛍️ 자유시간 (쇼핑·마사지) 후 저녁식사</div></div>
       </div>
     </div>
 
     <div class="day-block" id="day-5" style="--accent:var(--jade);--accent-deep:var(--jade-deep)">
-      <div class="day-head"><span class="day-num">DAY 05</span><h3>카페아파트먼트 · 오페라하우스 · 공항 이동</h3><span class="day-date">2026.10.16 (금)</span></div>
+      <div class="day-head"><span class="day-num">DAY 05</span><h3>☕ 카페아파트먼트 · 오페라하우스 · 공항 이동</h3><span class="day-date">2026.10.16 (금)</span></div>
       <div class="day-tl">
-        <div class="day-item"><div class="day-time">오전</div><div class="day-what">카페아파트먼트(42 Nguyễn Huệ) 카페 투어</div><div class="day-note">응우옌후에 거리 남단, 무료 입장</div></div>
-        <div class="day-item"><div class="day-time">낮</div><div class="day-what">오페라하우스 &amp; 시청(인민위원회청사) 외관 사진</div></div>
-        <div class="day-item"><div class="day-time">오후</div><div class="day-what">마지막 쇼핑, 짐 정리, 이른 저녁식사</div></div>
-        <div class="day-item"><div class="day-time">21:30경</div><div class="day-what">탄손녓 국제공항으로 이동</div><div class="day-note">00:10 출발편 대비, 2시간 전 도착 목표</div></div>
+        <div class="day-item"><div class="day-time">오전</div><div class="day-what">☕ 카페아파트먼트(42 Nguyễn Huệ) 카페 투어</div><div class="day-note">응우옌후에 거리 남단, 무료 입장</div></div>
+        <div class="day-item"><div class="day-time">낮</div><div class="day-what">📸 오페라하우스 &amp; 시청(인민위원회청사) 외관 사진</div></div>
+        <div class="day-item"><div class="day-time">오후</div><div class="day-what">🧳 마지막 쇼핑, 짐 정리, 이른 저녁식사</div></div>
+        <div class="day-item"><div class="day-time">21:30경</div><div class="day-what">🚕 탄손녓 국제공항으로 이동</div><div class="day-note">00:10 출발편 대비, 2시간 전 도착 목표</div></div>
       </div>
     </div>
 
     <div class="day-block" id="day-6" style="--accent:var(--red);--accent-deep:var(--red-deep)">
-      <div class="day-head"><span class="day-num">DAY 06</span><h3>귀국</h3><span class="day-date">2026.10.17 (토)</span></div>
+      <div class="day-head"><span class="day-num">DAY 06</span><h3>🛬 귀국</h3><span class="day-date">2026.10.17 (토)</span></div>
       <div class="day-tl">
-        <div class="day-item"><div class="day-time">00:10</div><div class="day-what">호치민 출발 — OZ736</div></div>
-        <div class="day-item"><div class="day-time">07:20</div><div class="day-what">인천공항 T2 도착</div></div>
+        <div class="day-item"><div class="day-time">00:10</div><div class="day-what">🛫 호치민 출발 — OZ736</div></div>
+        <div class="day-item"><div class="day-time">07:20</div><div class="day-what">🛬 인천공항 T2 도착</div></div>
       </div>
     </div>
   </div>
@@ -370,7 +369,7 @@ h1,h2,h3,h4{margin:0}
   <!-- ══════════ STAY & FLIGHT ══════════ -->
   <div class="tab-panel" id="panel-stay">
   <div class="con">
-    <div class="ph"><h1>항공편 · 숙소</h1><p>OZ731 / OZ736 · Angsana Hồ Tràm · Somerset Hồ Chí Minh</p></div>
+    <div class="ph"><h1>✈️ 항공편 · 숙소</h1><p>🎫 OZ731 / OZ736 · 🏖️ Angsana Hồ Tràm · 🏙️ Somerset Hồ Chí Minh</p></div>
 
     <div id="flight-sec">
       <div class="stitle">✈️ 항공편</div>
@@ -398,14 +397,14 @@ h1,h2,h3,h4{margin:0}
 
       <div class="note-box red">⏰ 귀국편은 10/17 자정을 갓 넘긴 00:10 출발입니다. 실제로는 10/16(금) 밤에 탄손녓 국제공항에 미리 도착해 체크인해야 합니다.</div>
 
-      <div class="stitle">탑승객 (전원 아시아나 OZ731 / OZ736 동일 항공편)</div>
+      <div class="stitle">🧳 탑승객 (전원 아시아나 OZ731 / OZ736 동일 항공편)</div>
       <div class="pax-row">
-        <span class="pax"><span class="rel">황서림 아버지</span><span class="nm">HWANG / GYUHO</span></span>
-        <span class="pax"><span class="rel">황서림 어머니</span><span class="nm">JANG / SEONHUI</span></span>
-        <span class="pax"><span class="rel">본인 · 황서림 남편</span><span class="nm">AHN / YOUNGJUN</span></span>
-        <span class="pax"><span class="rel">아내</span><span class="nm">HWANG / SEORIM</span></span>
-        <span class="pax"><span class="rel">황서림 오빠</span><span class="nm">HWANG / SEONJUN</span></span>
-        <span class="pax"><span class="rel">황서림 동생</span><span class="nm">HWANG / SEOHYUN</span></span>
+        <span class="pax"><span class="rel">👨 황서림 아버지</span><span class="nm">HWANG / GYUHO</span></span>
+        <span class="pax"><span class="rel">👩 황서림 어머니</span><span class="nm">JANG / SEONHUI</span></span>
+        <span class="pax"><span class="rel">🤵 본인 · 황서림 남편</span><span class="nm">AHN / YOUNGJUN</span></span>
+        <span class="pax"><span class="rel">👰 아내</span><span class="nm">HWANG / SEORIM</span></span>
+        <span class="pax"><span class="rel">🙋‍♂️ 황서림 오빠</span><span class="nm">HWANG / SEONJUN</span></span>
+        <span class="pax"><span class="rel">🙋‍♀️ 황서림 동생</span><span class="nm">HWANG / SEOHYUN</span></span>
       </div>
     </div>
 
@@ -420,18 +419,18 @@ h1,h2,h3,h4{margin:0}
         </div>
         <div class="stay-body">
           <div class="stay-dates">
-            <div><span class="l">CHECK-IN</span><span class="v">10.12 (월)</span></div>
-            <div><span class="l">CHECK-OUT</span><span class="v">10.14 (수)</span></div>
-            <div><span class="l">NIGHTS</span><span class="v">2박</span></div>
+            <div><span class="l">🛎️ CHECK-IN</span><span class="v">10.12 (월)</span></div>
+            <div><span class="l">🚪 CHECK-OUT</span><span class="v">10.14 (수)</span></div>
+            <div><span class="l">🌙 NIGHTS</span><span class="v">2박</span></div>
           </div>
           <div class="info-list">
-            <div class="info-row"><span class="dot"></span><b>객실</b><span>호짬 3베드룸 풀빌라 · 성인 6인 · 금연/트윈</span></div>
-            <div class="info-row"><span class="dot"></span><b>포함</b><span>조식 포함</span></div>
-            <div class="info-row"><span class="dot"></span><b>예약번호</b><span>101220731582 (Kakao Pay 결제)</span></div>
-            <div class="info-row"><span class="dot"></span><b>연락처</b><span>+84 254 366 9966</span></div>
-            <div class="info-row"><span class="dot"></span><b>정책</b><span>환불 불가 · 노쇼 시 요금 100% 부과</span></div>
+            <div class="info-row"><span class="dot"></span><b>🛏️ 객실</b><span>호짬 3베드룸 풀빌라 · 성인 6인 · 금연/트윈</span></div>
+            <div class="info-row"><span class="dot"></span><b>🎁 포함</b><span>조식 포함</span></div>
+            <div class="info-row"><span class="dot"></span><b>📋 예약번호</b><span>101220731582 (Kakao Pay 결제)</span></div>
+            <div class="info-row"><span class="dot"></span><b>☎️ 연락처</b><span>+84 254 366 9966</span></div>
+            <div class="info-row"><span class="dot"></span><b>⚠️ 정책</b><span>환불 불가 · 노쇼 시 요금 100% 부과</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-angsana"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Angsana+Ho+Tram,+Ho+Tram,+Vietnam" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
       </div>
 
@@ -443,18 +442,18 @@ h1,h2,h3,h4{margin:0}
         </div>
         <div class="stay-body">
           <div class="stay-dates">
-            <div><span class="l">CHECK-IN</span><span class="v">10.14 (수)</span></div>
-            <div><span class="l">CHECK-OUT</span><span class="v">10.16 (금)</span></div>
-            <div><span class="l">NIGHTS</span><span class="v">2박</span></div>
+            <div><span class="l">🛎️ CHECK-IN</span><span class="v">10.14 (수)</span></div>
+            <div><span class="l">🚪 CHECK-OUT</span><span class="v">10.16 (금)</span></div>
+            <div><span class="l">🌙 NIGHTS</span><span class="v">2박</span></div>
           </div>
           <div class="info-list">
-            <div class="info-row"><span class="dot"></span><b>객실</b><span>3-Bedroom Executive · 성인 6인</span></div>
-            <div class="info-row"><span class="dot"></span><b>포함</b><span>무료 Wi-Fi · 피트니스 · 웰컴드링크 · 수영장</span></div>
-            <div class="info-row"><span class="dot"></span><b>예약번호</b><span>1779344223 (Agoda · Naver Pay 결제)</span></div>
-            <div class="info-row"><span class="dot"></span><b>필수</b><span>체크인 시 사진 포함 유효 신분증 지참</span></div>
-            <div class="info-row"><span class="dot"></span><b>정책</b><span>환불 불가 · 노쇼 시 요금 100% 부과</span></div>
+            <div class="info-row"><span class="dot"></span><b>🛏️ 객실</b><span>3-Bedroom Executive · 성인 6인</span></div>
+            <div class="info-row"><span class="dot"></span><b>🎁 포함</b><span>무료 Wi-Fi · 피트니스 · 웰컴드링크 · 수영장</span></div>
+            <div class="info-row"><span class="dot"></span><b>📋 예약번호</b><span>1779344223 (Agoda · Naver Pay 결제)</span></div>
+            <div class="info-row"><span class="dot"></span><b>🪪 필수</b><span>체크인 시 사진 포함 유효 신분증 지참</span></div>
+            <div class="info-row"><span class="dot"></span><b>⚠️ 정책</b><span>환불 불가 · 노쇼 시 요금 100% 부과</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-somerset"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Somerset+Ho+Chi+Minh+City,+8A+Nguyen+Binh+Khiem,+District+1" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
       </div>
     </div>
@@ -464,12 +463,12 @@ h1,h2,h3,h4{margin:0}
   <!-- ══════════ SPOTS & FOOD ══════════ -->
   <div class="tab-panel" id="panel-spots">
   <div class="con">
-    <div class="ph"><h1>명소 · 맛집</h1><p>가고 싶은 곳과 먹고 싶은 것 모아보기 · 눌러서 상세정보 보기</p></div>
+    <div class="ph"><h1>📍 명소 · 맛집</h1><p>😋 가고 싶은 곳과 먹고 싶은 것 모아보기 · 👆 눌러서 상세정보 보기</p></div>
 
     <div id="spot-sec">
       <div class="stitle">📍 명소</div>
 
-      <div class="grp-lbl">Day 3 · 호치민 시내</div>
+      <div class="grp-lbl">🗓️ Day 3 · 호치민 시내</div>
       <div class="lgroup">
         <div class="lrow" onclick="toggleRow('d-post')">
           <div class="lrow-icon" style="background:var(--teal-soft);color:var(--teal-deep)">🏛️</div>
@@ -480,9 +479,9 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Bưu điện Trung tâm Sài Gòn</div>
           1886~1891년 프랑스 식민지 시절 건축된 현역 우체국. 노트르담 대성당 바로 앞, 서점거리 입구에 위치해 산책 겸 방문하기 좋다.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>2 Công Xã Paris, Bến Nghé, Q.1</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>2 Công Xã Paris, Bến Nghé, Q.1</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-post"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Saigon+Central+Post+Office,+2+Cong+Xa+Paris,+District+1,+Ho+Chi+Minh+City" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
 
         <div class="lrow" onclick="toggleRow('d-books')">
@@ -494,7 +493,7 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Đường Sách</div>
           중앙우체국 옆 골목에 독립서점·소품점·야외 카페가 늘어선 그늘길. 더위를 피해 잠깐 쉬어가기 좋다.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>중앙우체국 바로 옆 골목, Q.1</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>중앙우체국 바로 옆 골목, Q.1</span></div>
           </div>
         </div>
 
@@ -507,9 +506,9 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Chợ Bến Thành</div>
           호치민의 상징적인 재래시장. 낮에는 기념품·의류·건과일 쇼핑, 저녁엔 시장 주변이 야시장으로 변신한다. 흥정은 제시가의 40~50%부터 시작.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>Lê Lợi / Hàm Nghi 교차로, Q.1</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>Lê Lợi / Hàm Nghi 교차로, Q.1</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-benthanh"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Ben+Thanh+Market,+Ho+Chi+Minh+City" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
 
         <div class="lrow" onclick="toggleRow('d-benthanhfood')">
@@ -521,12 +520,12 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Ben Thanh Street Food Market</div>
           벤탄시장 북문에서 도보 1분. 분까·고이꾸온·짜오똠 등 베트남 길거리 음식을 한자리에서, 1인분 2.5만동부터.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>벤탄시장 북문 앞, Q.1</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>벤탄시장 북문 앞, Q.1</span></div>
           </div>
         </div>
       </div>
 
-      <div class="grp-lbl">Day 4 · 역사 명소</div>
+      <div class="grp-lbl">🗓️ Day 4 · 역사 명소</div>
       <div class="lgroup">
         <div class="lrow" onclick="toggleRow('d-war')">
           <div class="lrow-icon" style="background:var(--teal-soft);color:var(--teal-deep)">🏚️</div>
@@ -537,10 +536,10 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Bảo tàng Chứng tích Chiến tranh</div>
           베트남전 당시 자료·사진을 전시하는 박물관. 무거운 주제지만 호치민에서 꼭 들르는 필수 코스 중 하나.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>입장료</b><span>성인 4만동 · 학생/경로 50%</span></div>
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>28 Võ Văn Tần, Q.3</span></div>
+            <div class="info-row"><span class="dot"></span><b>🎟️ 입장료</b><span>성인 4만동 · 학생/경로 50%</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>28 Võ Văn Tần, Q.3</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-war"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=War+Remnants+Museum,+28+Vo+Van+Tan,+District+3,+Ho+Chi+Minh+City" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
 
         <div class="lrow" onclick="toggleRow('d-palace')">
@@ -552,14 +551,14 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Dinh Độc Lập</div>
           1975년 사이공 함락 당시 탱크가 진입한 역사적 현장. 지하 벙커·집무실이 그대로 보존되어 있어 관람에 1.5~2.5시간 소요.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>입장료</b><span>통합권 8만동 · 경로 4만동 · 어린이 2만동</span></div>
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>135 Nam Kỳ Khởi Nghĩa, Q.1</span></div>
+            <div class="info-row"><span class="dot"></span><b>🎟️ 입장료</b><span>통합권 8만동 · 경로 4만동 · 어린이 2만동</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>135 Nam Kỳ Khởi Nghĩa, Q.1</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-palace"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Reunification+Palace,+135+Nam+Ky+Khoi+Nghia,+District+1,+Ho+Chi+Minh+City" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
       </div>
 
-      <div class="grp-lbl">Day 5 · 카페거리 &amp; 야경</div>
+      <div class="grp-lbl">🗓️ Day 5 · 카페거리 &amp; 야경</div>
       <div class="lgroup">
         <div class="lrow" onclick="toggleRow('d-cafeapt')">
           <div class="lrow-icon" style="background:var(--teal-soft);color:var(--teal-deep)">☕</div>
@@ -570,10 +569,10 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Chung cư 42 Nguyễn Huệ</div>
           1960년대 아파트를 개조한 9층짜리 카페·편집숍 건물. 응우옌후에 워킹스트리트 남단, 4층 Partea의 베트남식 에그커피(카페쯩)가 유명하다.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>입장료</b><span>건물 입장 무료 (음료 별도)</span></div>
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>42 Nguyễn Huệ, Q.1</span></div>
+            <div class="info-row"><span class="dot"></span><b>🎟️ 입장료</b><span>건물 입장 무료 (음료 별도)</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>42 Nguyễn Huệ, Q.1</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-cafeapt"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=42+Nguyen+Hue,+District+1,+Ho+Chi+Minh+City" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
 
         <div class="lrow" onclick="toggleRow('d-opera')">
@@ -585,9 +584,9 @@ h1,h2,h3,h4{margin:0}
           <div class="native" style="font-size:11.5px;color:var(--muted);margin-bottom:6px">Nhà hát Thành phố · Trụ sở UBND</div>
           1900년 완공된 프랑스 식민지풍 오페라하우스와 인근 시청(인민위원회청사)은 호치민 최고의 야경 포토스팟. 내부는 비공개, 공연 관람 시 별도 예매 필요.
           <div class="info-list" style="margin-top:8px">
-            <div class="info-row"><span class="dot"></span><b>주소</b><span>7 Lam Sơn Square, Q.1</span></div>
+            <div class="info-row"><span class="dot"></span><b>📍 주소</b><span>7 Lam Sơn Square, Q.1</span></div>
           </div>
-          <div class="qr-chip"><div class="qbox" id="qr-opera"></div><span class="qcap">구글맵</span></div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Saigon+Opera+House,+Lam+Son+Square,+District+1,+Ho+Chi+Minh+City" target="_blank" rel="noopener">📍 구글 지도에서 보기<span class="ml-arrow">›</span></a>
         </div>
       </div>
     </div>
@@ -595,7 +594,7 @@ h1,h2,h3,h4{margin:0}
     <div id="food-sec">
       <div class="stitle" style="margin-top:28px">🍜 맛집 &amp; 카페</div>
 
-      <div class="grp-lbl">호짬 &amp; 붕따우</div>
+      <div class="grp-lbl">🌴 호짬 &amp; 붕따우</div>
       <div class="lgroup">
         <div class="lrow" onclick="toggleRow('d-coba')">
           <div class="lrow-icon" style="background:var(--amber-soft);color:var(--amber-deep)">🍲</div>
@@ -620,7 +619,7 @@ h1,h2,h3,h4{margin:0}
       </div>
       <div class="note-box amber">호짬 리조트에서 붕따우 시내까지는 차량으로 약 40~60분 거리입니다. 이동이 번거로우면 Angsana 리조트 내 레스토랑도 훌륭한 대안입니다.</div>
 
-      <div class="grp-lbl">호치민 로컬 맛집</div>
+      <div class="grp-lbl">🍜 호치민 로컬 맛집</div>
       <div class="lgroup">
         <div class="lrow" onclick="toggleRow('d-banhmi')">
           <div class="lrow-icon" style="background:var(--amber-soft);color:var(--amber-deep)">🥖</div>
@@ -665,7 +664,7 @@ h1,h2,h3,h4{margin:0}
         <div class="lrow-detail" id="d-benthanhfood2">분까 롱수옌, 껌땀 라센, 고이꾸온 등 다양한 길거리 음식을 한자리에서. 저녁 산책 겸 방문하기 좋다.</div>
       </div>
 
-      <div class="grp-lbl">분위기 있는 한 끼</div>
+      <div class="grp-lbl">🍽️ 분위기 있는 한 끼</div>
       <div class="lgroup">
         <div class="lrow" onclick="toggleRow('d-cucgach')">
           <div class="lrow-icon" style="background:var(--amber-soft);color:var(--amber-deep)">🍽️</div>
@@ -689,7 +688,7 @@ h1,h2,h3,h4{margin:0}
         <div class="lrow-detail" id="d-secretgarden">건물 옥상 정원에서 식사하는 베트남 가정식 레스토랑. 사진 찍기 좋은 분위기로 유명하다.</div>
       </div>
 
-      <div class="grp-lbl">카페 &amp; 바</div>
+      <div class="grp-lbl">☕ 카페 &amp; 바</div>
       <div class="lgroup">
         <div class="lrow" onclick="toggleRow('d-partea')">
           <div class="lrow-icon" style="background:var(--jade-soft);color:var(--jade-deep)">🥚</div>
@@ -719,9 +718,9 @@ h1,h2,h3,h4{margin:0}
   <!-- ══════════ ALL ══════════ -->
   <div class="tab-panel" id="panel-all">
   <div class="con">
-    <div class="ph"><h1>전체 목록</h1><p>여행 정보 · 체크리스트 · 회화 · 앱 · 메모</p></div>
+    <div class="ph"><h1>📋 전체 목록</h1><p>ℹ️ 여행 정보 · ✅ 체크리스트 · 🗣️ 회화 · 📱 앱 · 📝 메모</p></div>
 
-    <div class="grp-lbl">여행 준비</div>
+    <div class="grp-lbl">🎒 여행 준비</div>
     <div class="lgroup">
       <div class="lrow" id="row-info" onclick="toggleRow('d-info')">
         <div class="lrow-icon" style="background:var(--teal-soft);color:var(--teal-deep)">ℹ️</div>
@@ -730,10 +729,10 @@ h1,h2,h3,h4{margin:0}
       </div>
       <div class="lrow-detail" id="d-info">
         <div class="info-list">
-          <div class="info-row"><span class="dot"></span><b>비자</b><span>무비자 45일 · 한국 여권 소지자, 2028.3.14까지 시행 중인 일방적 무비자 협정 적용</span></div>
-          <div class="info-row"><span class="dot"></span><b>날씨(10월)</b><span>평균 최고 30℃ · 건기 전환기, 짧고 강한 스콜성 소나기 잦음 · 우산보다 우비 추천</span></div>
-          <div class="info-row"><span class="dot"></span><b>호짬↔호치민</b><span>차량 2~3시간 · 약 110km, 교통 상황에 따라 소요시간 변동</span></div>
-          <div class="info-row"><span class="dot"></span><b>결제</b><span>카드+소액 현금 · 비자/마스터 대부분 통용, 시장·포장마차용 소액 현금 별도 준비</span></div>
+          <div class="info-row"><span class="dot"></span><b>🛂 비자</b><span>무비자 45일 · 한국 여권 소지자, 2028.3.14까지 시행 중인 일방적 무비자 협정 적용</span></div>
+          <div class="info-row"><span class="dot"></span><b>🌦️ 날씨(10월)</b><span>평균 최고 30℃ · 건기 전환기, 짧고 강한 스콜성 소나기 잦음 · 우산보다 우비 추천</span></div>
+          <div class="info-row"><span class="dot"></span><b>🚗 호짬↔호치민</b><span>차량 2~3시간 · 약 110km, 교통 상황에 따라 소요시간 변동</span></div>
+          <div class="info-row"><span class="dot"></span><b>💳 결제</b><span>카드+소액 현금 · 비자/마스터 대부분 통용, 시장·포장마차용 소액 현금 별도 준비</span></div>
         </div>
         <div class="note-box teal">전체 일정은 <b>5박 6일</b>이며, 마지막 밤은 자정 항공편 탑승을 위해 공항에서 보내게 됩니다. 붕따우 호짬(2박) → 호치민 시내(2박) 순서로 이동합니다.</div>
       </div>
@@ -744,7 +743,7 @@ h1,h2,h3,h4{margin:0}
         <div class="lrow-arrow">›</div>
       </div>
       <div class="lrow-detail" id="d-checklist">
-        <b style="color:var(--text)">필수 준비물</b>
+        <b style="color:var(--text)">🧳 필수 준비물</b>
         <div class="info-list" style="margin:6px 0 12px">
           <div class="info-row"><span class="dot"></span><span>여권 (유효기간 6개월 이상)</span></div>
           <div class="info-row"><span class="dot"></span><span>여권 사본 · 항공권 E-티켓</span></div>
@@ -752,7 +751,7 @@ h1,h2,h3,h4{margin:0}
           <div class="info-row"><span class="dot"></span><span>트래블카드 · 소액 달러/현금</span></div>
           <div class="info-row"><span class="dot"></span><span>국제운전면허증 (그랩 대신 렌트 시)</span></div>
         </div>
-        <b style="color:var(--text)">의류 &amp; 수영</b>
+        <b style="color:var(--text)">👕 의류 &amp; 수영</b>
         <div class="info-list" style="margin:6px 0 12px">
           <div class="info-row"><span class="dot"></span><span>반팔·린넨 옷 위주 (긴바지·긴치마 비추천)</span></div>
           <div class="info-row"><span class="dot"></span><span>수영복 2벌 이상 (풀빌라+수영장)</span></div>
@@ -760,21 +759,21 @@ h1,h2,h3,h4{margin:0}
           <div class="info-row"><span class="dot"></span><span>가벼운 가디건 (에어컨·기내용)</span></div>
           <div class="info-row"><span class="dot"></span><span>물놀이 슬리퍼 · 편한 운동화</span></div>
         </div>
-        <b style="color:var(--text)">비상약 &amp; 위생</b>
+        <b style="color:var(--text)">💊 비상약 &amp; 위생</b>
         <div class="info-list" style="margin:6px 0 12px">
           <div class="info-row"><span class="dot"></span><span>해열진통제 · 지사제 · 소화제</span></div>
           <div class="info-row"><span class="dot"></span><span>모기기피제 · 물린 후 바르는 연고</span></div>
           <div class="info-row"><span class="dot"></span><span>선크림 (SPF50+) · 애프터선</span></div>
           <div class="info-row"><span class="dot"></span><span>손소독제 · 방수 밴드</span></div>
         </div>
-        <b style="color:var(--text)">전자기기</b>
+        <b style="color:var(--text)">🔌 전자기기</b>
         <div class="info-list" style="margin:6px 0 12px">
           <div class="info-row"><span class="dot"></span><span>유심/이심 (선구매 추천) · 멀티플러그</span></div>
           <div class="info-row"><span class="dot"></span><span>보조배터리 · 고속충전기</span></div>
           <div class="info-row"><span class="dot"></span><span>수중카메라 또는 방수케이스</span></div>
           <div class="info-row"><span class="dot"></span><span>방수 파우치 (휴대폰용)</span></div>
         </div>
-        <b style="color:var(--text)">기타</b>
+        <b style="color:var(--text)">🎒 기타</b>
         <div class="info-list" style="margin:6px 0 12px">
           <div class="info-row"><span class="dot"></span><span>지퍼백 · 여행용 세제 (수영복 세탁)</span></div>
           <div class="info-row"><span class="dot"></span><span>비상식량 (컵라면·즉석죽)</span></div>
@@ -782,7 +781,7 @@ h1,h2,h3,h4{margin:0}
           <div class="info-row"><span class="dot"></span><span>기내용 목베개 (자정 귀국편 대비)</span></div>
         </div>
         <div class="note-box amber">
-          <b style="color:var(--text)">출국 전 다시한번 더 점검!</b>
+          <b style="color:var(--text)">🚨 출국 전 다시한번 더 점검!</b>
           <div class="info-list" style="margin-top:6px">
             <div class="info-row"><span class="dot"></span><span>여권 만료일 · 사증란 여백 확인</span></div>
             <div class="info-row"><span class="dot"></span><span>인천 T2 출국 터미널 확인 (아시아나 2026.1.14~)</span></div>
@@ -801,19 +800,19 @@ h1,h2,h3,h4{margin:0}
         <div style="overflow-x:auto">
         <table style="width:100%;border-collapse:collapse;font-size:12.6px">
           <tbody>
-            <tr><td colspan="3" style="padding:8px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">기본 표현</td></tr>
+            <tr><td colspan="3" style="padding:8px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">👋 기본 표현</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Xin chào</td><td style="padding:4px;color:var(--muted)">씬 짜오</td><td style="padding:4px">안녕하세요</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Cảm ơn</td><td style="padding:4px;color:var(--muted)">깜 언</td><td style="padding:4px">감사합니다</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Xin lỗi</td><td style="padding:4px;color:var(--muted)">씬 로이</td><td style="padding:4px">실례합니다 / 죄송해요</td></tr>
-            <tr><td colspan="3" style="padding:10px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">식당</td></tr>
+            <tr><td colspan="3" style="padding:10px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">🍽️ 식당</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Không cay</td><td style="padding:4px;color:var(--muted)">콩 까이</td><td style="padding:4px">안 맵게 해주세요</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Tính tiền</td><td style="padding:4px;color:var(--muted)">띤 띠엔</td><td style="padding:4px">계산해주세요</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Ngon quá!</td><td style="padding:4px;color:var(--muted)">응온 꽈</td><td style="padding:4px">정말 맛있어요</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Cho tôi một bia</td><td style="padding:4px;color:var(--muted)">쪼 또이 못 비아</td><td style="padding:4px">맥주 하나 주세요</td></tr>
-            <tr><td colspan="3" style="padding:10px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">흥정 &amp; 이동</td></tr>
+            <tr><td colspan="3" style="padding:10px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">💰 흥정 &amp; 이동</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Bao nhiêu tiền?</td><td style="padding:4px;color:var(--muted)">바오 니에우 띠엔</td><td style="padding:4px">얼마예요?</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Đi đến [nơi] này</td><td style="padding:4px;color:var(--muted)">디 덴 [노이] 나이</td><td style="padding:4px">여기로 가주세요 (지도 짚기)</td></tr>
-            <tr><td colspan="3" style="padding:10px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">화장실 문의</td></tr>
+            <tr><td colspan="3" style="padding:10px 4px 4px;font-weight:800;color:var(--jade-deep);font-size:11.5px">🚻 화장실 문의</td></tr>
             <tr><td style="padding:4px;font-weight:700;color:var(--text)">Nhà vệ sinh ở đâu?</td><td style="padding:4px;color:var(--muted)">냐 베 씬 어 더우</td><td style="padding:4px">화장실이 어디예요?</td></tr>
           </tbody>
         </table>
@@ -827,16 +826,16 @@ h1,h2,h3,h4{margin:0}
       </div>
       <div class="lrow-detail" id="d-apps">
         <div class="info-list">
-          <div class="info-row"><span class="dot"></span><b>Grab</b><span>차량 호출·음식배달 필수 1순위. 기사와의 채팅 자동번역 지원, 인앱 결제 가능</span></div>
-          <div class="info-row"><span class="dot"></span><b>Google 지도</b><span>현지 상호 검색·경로 확인용. 한글 지명 대신 영문/현지어로 검색하는 게 정확</span></div>
-          <div class="info-row"><span class="dot"></span><b>Google 번역</b><span>카메라 번역 기능으로 베트남어 메뉴판 즉석 번역</span></div>
-          <div class="info-row"><span class="dot"></span><b>XE Currency</b><span>동(VND) 단위가 커서 헷갈리기 쉬운 환율을 오프라인으로도 계산</span></div>
-          <div class="info-row"><span class="dot"></span><b>Agoda</b><span>두 숙소 모두 아고다 예약 — 바우처·연락처 앱에서 바로 확인 가능</span></div>
+          <div class="info-row"><span class="dot"></span><b>🚕 Grab</b><span>차량 호출·음식배달 필수 1순위. 기사와의 채팅 자동번역 지원, 인앱 결제 가능</span></div>
+          <div class="info-row"><span class="dot"></span><b>🗺️ Google 지도</b><span>현지 상호 검색·경로 확인용. 한글 지명 대신 영문/현지어로 검색하는 게 정확</span></div>
+          <div class="info-row"><span class="dot"></span><b>🌐 Google 번역</b><span>카메라 번역 기능으로 베트남어 메뉴판 즉석 번역</span></div>
+          <div class="info-row"><span class="dot"></span><b>💱 XE Currency</b><span>동(VND) 단위가 커서 헷갈리기 쉬운 환율을 오프라인으로도 계산</span></div>
+          <div class="info-row"><span class="dot"></span><b>🏨 Agoda</b><span>두 숙소 모두 아고다 예약 — 바우처·연락처 앱에서 바로 확인 가능</span></div>
         </div>
       </div>
     </div>
 
-    <div class="grp-lbl">메모</div>
+    <div class="grp-lbl">📝 메모</div>
     <div class="lgroup">
       <div class="lrow" id="row-memo" onclick="toggleRow('d-memo')">
         <div class="lrow-icon" style="background:var(--teal-soft);color:var(--teal-deep)">📝</div>
@@ -886,21 +885,6 @@ function toggleRow(id){
   var row=d.previousElementSibling;
   if(row) row.classList.toggle('open',open);
 }
-function mkQR(id,query,size){
-  var el=document.getElementById(id);
-  if(!el||typeof QRCode==='undefined') return;
-  var url='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(query);
-  new QRCode(el,{text:url,width:size||64,height:size||64,colorDark:'#12262A',colorLight:'#ffffff'});
-}
-mkQR('qr-angsana','Angsana Ho Tram, Ho Tram, Vietnam',68);
-mkQR('qr-somerset','Somerset Ho Chi Minh City, 8A Nguyen Binh Khiem, District 1',68);
-mkQR('qr-post','Saigon Central Post Office, 2 Cong Xa Paris, District 1, Ho Chi Minh City',60);
-mkQR('qr-benthanh','Ben Thanh Market, Ho Chi Minh City',60);
-mkQR('qr-war','War Remnants Museum, 28 Vo Van Tan, District 3, Ho Chi Minh City',60);
-mkQR('qr-palace','Reunification Palace, 135 Nam Ky Khoi Nghia, District 1, Ho Chi Minh City',60);
-mkQR('qr-cafeapt','42 Nguyen Hue, District 1, Ho Chi Minh City',60);
-mkQR('qr-opera','Saigon Opera House, Lam Son Square, District 1, Ho Chi Minh City',60);
-
 function updateTripStatus(){
   try{
     var now=new Date();
